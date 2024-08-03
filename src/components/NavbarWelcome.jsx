@@ -9,12 +9,11 @@ function NavbarWelcome() {
       <h3>Postplay</h3>
 
       <Link to="/signup">
-        <img src={""} alt="heart" />
+        <h4>Sign Up</h4>
       </Link>
       <Link to="/login">
-        <img src={""} alt="add food" />
+        <h4>Log In</h4>
       </Link>
-      <img style={{}} src={""} alt="question Mark" />
     </div>
   );
 }
