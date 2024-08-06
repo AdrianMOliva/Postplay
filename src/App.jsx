@@ -8,6 +8,7 @@ import IsPrivate from "./components/IsPrivate";
 import Profile from "./pages/Profile";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import DetailsGamePage from "./pages/DetailsGamePage";
 
 function App() {
   const [game, setGame] = useState([]);
@@ -41,6 +42,10 @@ function App() {
               <Profile />
             </IsPrivate>
           }
+        />
+        <Route
+          path="/details/:gameId"
+          element={<DetailsGamePage game={game} />}
         />
       </Routes>
     </>
