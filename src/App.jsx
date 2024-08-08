@@ -9,9 +9,12 @@ import Profile from "./pages/Profile";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import DetailsGamePage from "./pages/DetailsGamePage";
+import RatingPage from "./pages/RatingPage";
 
 function App() {
   const [game, setGame] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [rating, setRating] = useState(0);
 
   useEffect(() => {
     const fetchGame = async () => {
@@ -24,10 +27,16 @@ function App() {
         setGame(data);
       } catch (err) {
         console.log("there is an error", err);
+      } finally {
+        setLoading(false);
       }
     };
     fetchGame();
   }, []);
+
+  if (loading) {
+    return <div>Loading game data...</div>;
+  }
   return (
     <>
       <Routes>
@@ -45,7 +54,13 @@ function App() {
         />
         <Route
           path="/details/:gameId"
-          element={<DetailsGamePage game={game} />}
+          element={<DetailsGamePage game={game} rating={rating} />}
+        />
+        <Route
+          path="/rating/:gameId"
+          element={
+            <RatingPage game={game} rating={rating} setRating={setRating} />
+          }
         />
       </Routes>
     </>

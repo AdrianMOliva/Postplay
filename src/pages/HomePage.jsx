@@ -17,7 +17,7 @@ function HomePage({ game }) {
       <div className="gameContainer">
         {game.map((oneGame, i) => (
           <div className="gameCard" key={i}>
-            <Link to={`/details/${oneGame.id}`}>
+            <Link to={`/details/${oneGame._id}`}>
               <img
                 className="cardImg"
                 src={oneGame.covers.url}
