@@ -1,19 +1,25 @@
 import axios from "axios";
+import { useState } from "react";
+import { AuthContext } from "../contexts/Auth.context";
+import { useContext } from "react";
 
 function RatingBar({ rating, setRating, gameId }) {
+  const [review, setReview] = useState("");
   const ratingFrame = [1, 2, 3, 4, 5];
+  const { user } = useContext(AuthContext);
 
   const handleRatingSubmit = async (newRating) => {
-    setRating(newRating);
     try {
       const token = localStorage.getItem("authToken");
       await axios.post(
         `http://localhost:5005/api/ratings`,
-        { gameId, rating: newRating },
+        { gameId, rating: newRating, review, userId: user._id },
         {
           headers: { authorization: `Bearer ${token}` },
         }
       );
+      setRating(newRating);
+      setReview("");
     } catch (error) {
       console.error("There was an error submitting the rating", error);
     }
@@ -21,24 +27,28 @@ function RatingBar({ rating, setRating, gameId }) {
 
   return (
     <div>
-      {ratingFrame.map((star) => {
-        return (
-          <span
-            className="rateBar"
-            style={{
-              cursor: "pointer",
-              color: rating >= star ? "blue" : "gray",
-              fontSize: `35px`,
-            }}
-            onClick={() => {
-              handleRatingSubmit(star);
-            }}
-          >
-            {" "}
-            ★{" "}
-          </span>
-        );
-      })}
+      {ratingFrame.map((star, i) => (
+        <span
+          className="rateBar"
+          key={i}
+          style={{
+            cursor: "pointer",
+            color: rating >= star ? "blue" : "gray",
+            fontSize: `35px`,
+          }}
+          onClick={() => handleRatingSubmit(star)}
+        >
+          {" "}
+          ★{" "}
+        </span>
+      ))}
+      <div>
+        <textarea
+          placeholder="Write a review..."
+          value={review}
+          onChange={(e) => setReview(e.target.value)}
+        />
+      </div>
     </div>
   );
 }

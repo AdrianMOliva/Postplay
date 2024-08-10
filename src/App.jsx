@@ -10,11 +10,13 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import DetailsGamePage from "./pages/DetailsGamePage";
 import RatingPage from "./pages/RatingPage";
+import BacklogPage from "./pages/BacklogPage";
 
 function App() {
   const [game, setGame] = useState([]);
   const [loading, setLoading] = useState(true);
   const [rating, setRating] = useState(0);
+  const [toggleBacklog, setToggleBacklog] = useState([]);
 
   useEffect(() => {
     const fetchGame = async () => {
@@ -25,6 +27,7 @@ function App() {
         });
 
         setGame(data);
+        setToggleBacklog(Array(data.length).fill(false));
       } catch (err) {
         console.log("there is an error", err);
       } finally {
@@ -54,12 +57,29 @@ function App() {
         />
         <Route
           path="/details/:gameId"
-          element={<DetailsGamePage game={game} rating={rating} />}
+          element={
+            <DetailsGamePage
+              game={game}
+              rating={rating}
+              toggleBacklog={toggleBacklog}
+              setToggleBacklog={setToggleBacklog}
+            />
+          }
         />
         <Route
           path="/rating/:gameId"
           element={
             <RatingPage game={game} rating={rating} setRating={setRating} />
+          }
+        />
+        <Route
+          path="/backlog"
+          element={
+            <BacklogPage
+              game={game}
+              toggleBacklog={toggleBacklog}
+              setToggleBacklog={setToggleBacklog}
+            />
           }
         />
       </Routes>

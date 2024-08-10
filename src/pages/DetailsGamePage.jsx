@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
-function DetailsGamePage({ game, rating }) {
+function DetailsGamePage({ game, rating, toggleBacklog, setToggleBacklog }) {
   const { gameId } = useParams();
   const [oneGame, setOneGame] = useState([]);
   const [averageRating, setAverageRating] = useState(null);
@@ -29,7 +29,41 @@ function DetailsGamePage({ game, rating }) {
     };
 
     fetchAverageRating();
-  }, [game._id]);
+  }, [gameId]);
+
+  const handleChange = async (index) => {
+    const newToggleBacklog = [...toggleBacklog];
+    newToggleBacklog[index] = !newToggleBacklog[index];
+
+    try {
+      const token = localStorage.getItem("authToken");
+      const response = await axios.put(
+        `http://localhost:5005/api/games/${gameId}`,
+        {
+          id: oneGame._id,
+          backlog: newToggleBacklog[index],
+          name: oneGame.name,
+          genres: oneGame.genres,
+          covers: oneGame.covers,
+          platforms: oneGame.platforms,
+          summary: oneGame.summary,
+          ratings: oneGame.ratings,
+          follows: oneGame.follows,
+          hypes: oneGame.hypes,
+        },
+        {
+          headers: { authorization: `Bearer ${token}` },
+        }
+      );
+
+      if (response.status === 200) {
+        setToggleBacklog(newToggleBacklog);
+      }
+      console.log(response);
+    } catch (error) {
+      console.error("Error updating toggle state:", error);
+    }
+  };
 
   return (
     <div className="container">
@@ -52,6 +86,14 @@ function DetailsGamePage({ game, rating }) {
             {oneGame.platforms}
           </p>
         </div>
+        <button
+          className="backlogButton"
+          onClick={() => {
+            handleChange();
+          }}
+        >
+          {"+Backlog"}
+        </button>
         <button
           className="rateButton"
           onClick={() => {

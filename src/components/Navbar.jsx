@@ -15,6 +15,9 @@ function Navbar() {
       <Link to="/profile">
         <img src={""} alt="Profile" />
       </Link>
+      <Link to="/backlog">
+        <h4>Backlog</h4>
+      </Link>
 
       <button onClick={handleLogout}>Log out</button>
     </div>
