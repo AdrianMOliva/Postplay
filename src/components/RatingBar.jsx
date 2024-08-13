@@ -2,11 +2,13 @@ import axios from "axios";
 import { useState } from "react";
 import { AuthContext } from "../contexts/Auth.context";
 import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 
 function RatingBar({ rating, setRating, gameId }) {
   const [review, setReview] = useState("");
   const ratingFrame = [1, 2, 3, 4, 5];
   const { user } = useContext(AuthContext);
+  const nav = useNavigate();
 
   const handleRatingSubmit = async (newRating) => {
     try {
@@ -20,6 +22,7 @@ function RatingBar({ rating, setRating, gameId }) {
       );
       setRating(newRating);
       setReview("");
+      nav(`/details/${gameId}`);
     } catch (error) {
       console.error("There was an error submitting the rating", error);
     }

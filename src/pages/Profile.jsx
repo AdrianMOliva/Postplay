@@ -52,25 +52,27 @@ function UserProfile() {
   }
 
   return (
-    <div>
+    <>
       <Navbar />
-      <h1>{`${user.userName}´s Profile`}</h1>
-      <h2>Your Reviews</h2>
-      {reviews.length > 0 ? (
-        reviews.map((review) => (
-          <div key={review._id}>
-            <p>Game: {review.gameId.name}</p>
-            <p>Rating: {review.rating}</p>
-            <p>Review: {review.review}</p>
-            <button onClick={() => handleDeleteReview(review._id)}>
-              Delete Review
-            </button>
-          </div>
-        ))
-      ) : (
-        <p>No reviews found.</p>
-      )}
-    </div>
+      <div>
+        <h1>{`${user.userName}´s Profile`}</h1>
+        <h2>Your Reviews</h2>
+        {reviews.length > 0 ? (
+          reviews.map((review) => (
+            <div key={review._id}>
+              <p>Game: {review.gameId.name}</p>
+              <p>Rating: {review.rating}</p>
+              <p>Review: {review.review}</p>
+              <button onClick={() => handleDeleteReview(review._id)}>
+                Delete Review
+              </button>
+            </div>
+          ))
+        ) : (
+          <p>No reviews found.</p>
+        )}
+      </div>
+    </>
   );
 }
 

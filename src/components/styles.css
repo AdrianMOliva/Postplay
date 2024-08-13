@@ -7,10 +7,12 @@
 }
 
 .navbarclass {
+  display: flex;
+  background-color: #e2b110;
+  height: 100px;
   width: 100%;
-  background-color: #333;
-  color: #fff;
-  padding: 10px;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .navbarclass a {
@@ -35,9 +37,8 @@
 
 .navbarWelcomeClass {
   display: flex;
-  background-color: #fbf3f3;
-  border-bottom: 2px solid #bb3c3c;
-  height: 70px;
+  background-color: #e2b110;
+  height: 100px;
   width: 100%;
   flex-direction: row;
   justify-content: space-between;
@@ -46,6 +47,23 @@
   left: 0;
 }
 
-.navbarclass a {
+.signingButtons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-right: 30px;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+}
+.signingButtons a {
   text-decoration: none;
+  color: whitesmoke;
+  margin: 20px;
+  background-color: #333;
+  width: 80px;
+  height: fit-content;
+}
+
+.logo {
+  width: 100px;
 }

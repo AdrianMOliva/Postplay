@@ -29,3 +29,11 @@
     margin-top: 60px;
   }
 }
+
+.welcomeText {
+  display: flex;
+  flex-direction: column;
+  margin-left: 300px;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+}

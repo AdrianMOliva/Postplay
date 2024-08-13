@@ -1,17 +1,17 @@
-import { useState } from "react";
-
-import ".././App.css";
-
+import "./WelcomePageStyle.css";
 import NavbarWelcome from "../components/NavbarWelcome";
+import PostLogoYellow from "../assets/POSTYellow.png";
 
 function WelcomePage() {
   return (
     <>
       <NavbarWelcome />
-      <div>
-        <h1>Welcome to PostPlay</h1>
-        <h3></h3>
+      <div className="welcomeText">
+        <h1>Play it!</h1>
+        <h1>Rate it!</h1>
+        <h1>Share it!</h1>
       </div>
+      <img className="LogoYellow" src={PostLogoYellow} alt="Logo" />
     </>
   );
 }

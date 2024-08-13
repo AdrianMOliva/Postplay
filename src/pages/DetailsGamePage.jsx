@@ -6,14 +6,23 @@ import axios from "axios";
 
 function DetailsGamePage({ game, rating, toggleBacklog, setToggleBacklog }) {
   const { gameId } = useParams();
-  const [oneGame, setOneGame] = useState([]);
+  const [oneGame, setOneGame] = useState({
+    genres: [],
+    platforms: [],
+  });
   const [averageRating, setAverageRating] = useState(null);
 
   const nav = useNavigate();
 
   useEffect(() => {
     const videoG = game.find((videoG) => videoG._id === gameId);
-    setOneGame(videoG);
+
+    setOneGame(
+      videoG || {
+        genres: [],
+        platforms: [],
+      }
+    );
   }, [game, gameId]);
 
   useEffect(() => {
@@ -71,10 +80,6 @@ function DetailsGamePage({ game, rating, toggleBacklog, setToggleBacklog }) {
       <div className="pageContainer">
         <div className="infoContainer">
           <h2>{oneGame.name}</h2>
-          <p>
-            <span>Description: </span>
-            {oneGame.summary}
-          </p>
           <h3>
             Average Rating:{" "}
             {averageRating !== null
@@ -82,8 +87,16 @@ function DetailsGamePage({ game, rating, toggleBacklog, setToggleBacklog }) {
               : "No ratings yet"}
           </h3>
           <p>
+            <span>Description: </span>
+            {oneGame.summary}
+          </p>
+          <p>
+            <span>Genres: </span>
+            {oneGame.genres.map((e) => e.name).join(", ")}
+          </p>
+          <p>
             <span>Platforms: </span>
-            {oneGame.platforms}
+            {oneGame.platforms.map((e) => e.name).join(", ")}
           </p>
         </div>
         <button
