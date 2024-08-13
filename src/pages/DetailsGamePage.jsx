@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { API_URL } from "../../config";
 
 function DetailsGamePage({ game, rating, toggleBacklog, setToggleBacklog }) {
   const { gameId } = useParams();
@@ -29,7 +30,7 @@ function DetailsGamePage({ game, rating, toggleBacklog, setToggleBacklog }) {
     const fetchAverageRating = async () => {
       try {
         const { data } = await axios.get(
-          `http://localhost:5005/api/ratings/${gameId}/average`
+          `${API_URL}/api/ratings/${gameId}/average`
         );
         setAverageRating(data.averageRating);
       } catch (error) {
@@ -47,7 +48,7 @@ function DetailsGamePage({ game, rating, toggleBacklog, setToggleBacklog }) {
     try {
       const token = localStorage.getItem("authToken");
       const response = await axios.put(
-        `http://localhost:5005/api/games/${gameId}`,
+        `${API_URL}/api/games/${gameId}`,
         {
           id: oneGame._id,
           backlog: newToggleBacklog[index],

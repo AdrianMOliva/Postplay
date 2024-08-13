@@ -1,5 +1,5 @@
 import axios from "axios";
-
+import { API_URL } from "../../config";
 import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
 
@@ -14,7 +14,7 @@ function BacklogPage({ game, toggleBacklog, setToggleBacklog }) {
       const gameId = backloggedGame[index]._id;
       const token = localStorage.getItem("authToken");
       const response = await axios.put(
-        `http://localhost:5005/api/games/${gameId}`,
+        `${API_URL}/api/games/${gameId}`,
         {
           id: backloggedGame._id,
           backlog: newToggleBacklog[index],

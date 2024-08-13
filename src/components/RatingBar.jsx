@@ -3,6 +3,7 @@ import { useState } from "react";
 import { AuthContext } from "../contexts/Auth.context";
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import { API_URL } from "../../config";
 
 function RatingBar({ rating, setRating, gameId }) {
   const [review, setReview] = useState("");
@@ -14,7 +15,7 @@ function RatingBar({ rating, setRating, gameId }) {
     try {
       const token = localStorage.getItem("authToken");
       await axios.post(
-        `http://localhost:5005/api/ratings`,
+        `${API_URL}/api/ratings`,
         { gameId, rating: newRating, review, userId: user._id },
         {
           headers: { authorization: `Bearer ${token}` },

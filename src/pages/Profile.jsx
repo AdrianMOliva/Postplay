@@ -2,7 +2,7 @@ import axios from "axios";
 import { useState, useEffect, useContext } from "react";
 import { AuthContext } from "../contexts/Auth.context";
 import Navbar from "../components/Navbar";
-
+import { API_URL } from "../../config";
 function UserProfile() {
   const { user, isLoading } = useContext(AuthContext);
   const [reviews, setReviews] = useState([]);
@@ -14,7 +14,7 @@ function UserProfile() {
       try {
         const token = localStorage.getItem("authToken");
         const response = await axios.get(
-          `http://localhost:5005/auth/users/${user._id}/reviews`,
+          `${API_URL}/auth/users/${user._id}/reviews`,
           {
             headers: { authorization: `Bearer ${token}` },
           }
@@ -38,7 +38,7 @@ function UserProfile() {
 
     try {
       const token = localStorage.getItem("authToken");
-      await axios.delete(`http://localhost:5005/api/ratings/${reviewId}`, {
+      await axios.delete(`${API_URL}/api/ratings/${reviewId}`, {
         headers: { authorization: `Bearer ${token}` },
       });
       setReviews(reviews.filter((review) => review._id !== reviewId));

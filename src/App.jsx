@@ -11,6 +11,7 @@ import axios from "axios";
 import DetailsGamePage from "./pages/DetailsGamePage";
 import RatingPage from "./pages/RatingPage";
 import BacklogPage from "./pages/BacklogPage";
+import { API_URL } from "../config";
 
 function App() {
   const [game, setGame] = useState([]);
@@ -22,7 +23,7 @@ function App() {
     const fetchGame = async () => {
       try {
         const token = localStorage.getItem("authToken");
-        const { data } = await axios.get("http://localhost:5005/api/games", {
+        const { data } = await axios.get(`${API_URL}/api/games`, {
           headers: { authorization: `Bearer ${token}` },
         });
 
