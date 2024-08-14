@@ -3,6 +3,7 @@ import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../contexts/Auth.context";
 import "./LogIn.css"
+import { API_URL } from "../../config";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -17,7 +18,7 @@ const Login = () => {
 
     try {
       const { data } = await axios.post(
-        "http://localhost:5005/auth/login",
+        `${API_URL}/auth/login`,
         userLogin
       );
       console.log("successfully logged in", data);
