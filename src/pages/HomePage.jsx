@@ -11,7 +11,7 @@ function HomePage({ game }) {
     oneGame.name.toLowerCase().includes(search.toLowerCase())
   );
   return (
-    <div clasname="homePage">
+    <>
       <Navbar />
       <SearchBar search={search} setSearch={setSearch} />
       <div className="gameContainer">
@@ -27,7 +27,7 @@ function HomePage({ game }) {
           </div>
         ))}
       </div>
-    </div>
+    </>
   );
 }
 

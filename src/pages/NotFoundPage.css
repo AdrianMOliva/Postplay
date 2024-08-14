@@ -1,0 +1,12 @@
+.notFound{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-self: center;
+    color: #e2b110;
+}
+
+.backButton{
+
+color:#e2b110 ;
+}

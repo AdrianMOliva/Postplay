@@ -1,4 +1,4 @@
-import "./styles.css";
+import "../pages/HomePage.css";
 
 function SearchBar({ search, setSearch }) {
   const handleChange = (e) => {

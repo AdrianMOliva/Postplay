@@ -1,10 +1,3 @@
-.searchBar input {
-  width: 50%;
-  padding: 10px;
-  font-size: 16px;
-  border: 1px solid #ccc;
-  border-radius: 10px;
-}
 
 .navbarclass {
   display: flex;
@@ -13,26 +6,53 @@
   width: 100%;
   flex-direction: row;
   justify-content: space-between;
+  position: fixed;
+  top: 0;
+  left: 0;
 }
 
 .navbarclass a {
   text-decoration: none;
+  
+}
+
+.logoHome{
+  width: 100px;
+  height: fit-content;
 }
 
 .logosDiv {
   display: flex;
-  background-color: #fbf3f3;
-  position: absolute;
-  right: 0;
-  top: 10;
-  height: 90px;
-
-  justify-content: space-between;
-  align-items: right;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-right: 30px;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
 }
 
 .logosDiv img {
   height: 90px;
+}
+
+.logosDiv button{
+  text-decoration: none;
+  color: whitesmoke;
+  margin: 20px;
+  background-color: #333;
+  width: 80px;
+  
+  height: 70px;
+}
+
+.logosDiv a{
+  text-decoration: none;
+  color: whitesmoke;
+  margin: 20px;
+  background-color: #333;
+  width: 80px;
+  height: 80px;
+  height: 70px;
+  border-radius: 8px;
 }
 
 .navbarWelcomeClass {
@@ -62,6 +82,11 @@
   background-color: #333;
   width: 80px;
   height: fit-content;
+  
+}
+
+.signingButtons h4{
+  margin-left: 9px;
 }
 
 .signingButtons a:hover {

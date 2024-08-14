@@ -1,6 +1,7 @@
 import "./styles.css";
 import { useContext } from "react";
 import { AuthContext } from "../contexts/Auth.context";
+import postLogo from "../assets/POSTLogo.png"
 
 import { Link } from "react-router-dom";
 function Navbar() {
@@ -8,10 +9,10 @@ function Navbar() {
   return (
     <div className="navbarclass">
       <Link to={"/home"}>
-        <img src={""} alt="Home" />
+        <img className= "logoHome" src={postLogo} alt="Home" />
       </Link>
-      <h3>Postplay</h3>
-
+      
+<div className="logosDiv">
       <Link to="/profile">
         <img src={""} alt="Profile" />
       </Link>
@@ -20,6 +21,7 @@ function Navbar() {
       </Link>
 
       <button onClick={handleLogout}>Log out</button>
+      </div>
     </div>
   );
 }

@@ -2,11 +2,12 @@
   display: flex;
   flex-direction: column;
   position: fixed;
-  left: 0;
-  bottom: 100px;
+  bottom: 150px;
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
   color: #e2b110;
+  margin-left: 200px;
+  font-size: larger;
 }
 
 .logoYellow {

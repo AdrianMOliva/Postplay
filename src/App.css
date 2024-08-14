@@ -1,9 +1,6 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-  
+body {
+  margin: 0;
+  background-color: #333;
 }
 
 @media (max-width: 768px) {
@@ -31,10 +28,3 @@
   }
 }
 
-.welcomeText {
-  display: flex;
-  flex-direction: column;
-  margin-left: 300px;
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
-}
