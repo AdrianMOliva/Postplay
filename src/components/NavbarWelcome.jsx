@@ -8,9 +8,9 @@ function NavbarWelcome() {
       <img className="logo" src={PostLogo} alt="PostPlay" />
 
       <div className="signingButtons">
-        <Link to="/signup">
+      <Link to="/signup">
           <h4>Sign Up</h4>
-        </Link>
+          </Link>
         <Link to="/login">
           <h4>Log In</h4>
         </Link>

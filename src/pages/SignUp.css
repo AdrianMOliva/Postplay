@@ -4,15 +4,20 @@
     align-items: center;
     justify-content: center;
     color: #e2b110;
-    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande"
+    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande";
+    height: auto;
+    border: 3px solid #e2b110;
+    padding: 100px;
 }
 
 .signUpButton{
     color: #e2b110;
+    background-color: #333;
 }
 
 .signUpButton:hover{
-    border-color: #e2b110;  
+    border-color: #e2b110; 
+    cursor: pointer; 
 }
 
 .signForm{
@@ -37,7 +42,5 @@
   font-family: inherit;
   background-color: #1a1a1a;
   margin-left: 10px;
-  
-
 }
 

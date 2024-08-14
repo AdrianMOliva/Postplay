@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { API_URL } from "../../config";
+import Navbar from "../components/Navbar";
 
 function DetailsGamePage({ game, rating, toggleBacklog, setToggleBacklog }) {
   const { gameId } = useParams();
@@ -76,6 +77,8 @@ function DetailsGamePage({ game, rating, toggleBacklog, setToggleBacklog }) {
   };
 
   return (
+    <>
+    <Navbar/>
     <div className="container">
       <h1></h1>
       <div className="pageContainer">
@@ -126,6 +129,7 @@ function DetailsGamePage({ game, rating, toggleBacklog, setToggleBacklog }) {
         </button>
       </div>
     </div>
+    </>
   );
 }
 

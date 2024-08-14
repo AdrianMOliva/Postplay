@@ -4,15 +4,19 @@
     align-items: center;
     justify-content: center;
     color: #e2b110;
-    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande"
+    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande";
+    border: 3px solid #e2b110;
+    padding: 100px;
 }
 
 .logButton{
     color: #e2b110;
+    background-color: #333;
 }
 
 .logButton:hover{
-    border-color: #e2b110;  
+    border-color: #e2b110;
+    cursor: pointer;  
 }
 
 .logForm{

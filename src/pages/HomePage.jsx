@@ -13,6 +13,7 @@ function HomePage({ game }) {
   return (
     <>
       <Navbar />
+      <div className="homePage">
       <SearchBar search={search} setSearch={setSearch} />
       <div className="gameContainer">
         {filteredGame.map((oneGame, i) => (
@@ -26,6 +27,7 @@ function HomePage({ game }) {
             </Link>
           </div>
         ))}
+        </div>
       </div>
     </>
   );

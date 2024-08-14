@@ -1,6 +1,20 @@
 body {
   margin: 0;
   background-color: #333;
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+  height: 100vh; 
+}
+
+.loadingDiv {
+  color: #e2b110;
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  height: 100vh; 
+  width: 100%; 
+  text-align: center; 
 }
 
 @media (max-width: 768px) {

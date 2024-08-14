@@ -6,3 +6,18 @@ Currently, two official plugins are available:
 
 - [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
 - [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+
+
+//let timestamp = 1696852441;
+
+// JavaScript `Date` object takes milliseconds, so multiply by 1000
+let date = new Date(timestamp * 1000);
+
+// Custom formatting options
+let options = {
+  year: 'numeric', 
+  month: 'long', 
+  day: 'numeric'
+};
+
+console.log("Formatted Date:", date.toLocaleDateString('en-US', options));

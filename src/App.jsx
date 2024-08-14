@@ -40,7 +40,7 @@ function App() {
   }, []);
 
   if (loading) {
-    return <div>Loading game data...</div>;
+    return <div className="loadingDiv">Loading game data...</div>;
   }
   return (
     <>

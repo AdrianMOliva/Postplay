@@ -6,7 +6,7 @@
   width: 100%;
   flex-direction: row;
   justify-content: space-between;
-  position: fixed;
+  
   top: 0;
   left: 0;
 }
@@ -30,6 +30,10 @@
     "Lucida Sans", Arial, sans-serif;
 }
 
+.logosDiv h4{
+  margin-left: 10px;
+}
+
 .logosDiv img {
   height: 90px;
 }
@@ -40,8 +44,13 @@
   margin: 20px;
   background-color: #333;
   width: 80px;
-  
   height: 70px;
+  border-radius: 8px;
+}
+
+.logosDiv button:hover{
+  color: #e2b110;
+  cursor: pointer;
 }
 
 .logosDiv a{
@@ -53,6 +62,10 @@
   height: 80px;
   height: 70px;
   border-radius: 8px;
+}
+
+.logosDiv a:hover{
+  color: #e2b110;
 }
 
 .navbarWelcomeClass {
