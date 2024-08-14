@@ -2,6 +2,7 @@ import axios from "axios";
 import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../contexts/Auth.context";
+import "./LogIn.css"
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -29,9 +30,9 @@ const Login = () => {
   };
 
   return (
-    <div>
+    <div className="logDiv">
       <h1>Welcome back!</h1>
-      <form onSubmit={handleLogin}>
+      <form className="logForm" onSubmit={handleLogin}>
         <label>
           Email:
           <input
@@ -48,7 +49,7 @@ const Login = () => {
             onChange={(e) => setPassword(e.target.value)}
           />
         </label>
-        <button>Login</button>
+        <button className="logButton">Login</button>
       </form>
       <p>
         Don´t have an account? <Link to="/signup">Signup</Link>

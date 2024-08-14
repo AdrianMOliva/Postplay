@@ -1,16 +1,19 @@
 .welcomeText {
   display: flex;
   flex-direction: column;
-  margin-left: 300px;
+  position: fixed;
+  left: 0;
+  bottom: 100px;
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
   color: #e2b110;
 }
 
-.LogoYellow {
+.logoYellow {
   position: fixed;
-  right: 250px;
-  bottom: 90px;
+  right: 110px;
+  bottom: 10px;
   width: 700px;
   height: 700px;
 }
+

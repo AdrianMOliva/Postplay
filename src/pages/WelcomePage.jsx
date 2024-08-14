@@ -6,12 +6,13 @@ function WelcomePage() {
   return (
     <>
       <NavbarWelcome />
+      
       <div className="welcomeText">
         <h1>Play it!</h1>
         <h1>Rate it!</h1>
         <h1>Share it!</h1>
       </div>
-      <img className="LogoYellow" src={PostLogoYellow} alt="Logo" />
+      <img className="logoYellow" src={PostLogoYellow} alt="Logo" />
     </>
   );
 }

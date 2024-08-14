@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { API_URL } from "../../config";
+import "./SignUp.css"
 const SignUp = () => {
   const [userName, setUserName] = useState("");
   const [email, setEmail] = useState("");
@@ -22,9 +23,9 @@ const SignUp = () => {
   };
 
   return (
-    <div>
+    <div className="signDiv">
       <h1>Start Posting Now!</h1>
-      <form onSubmit={handleSignUp}>
+      <form className="signForm" onSubmit={handleSignUp}>
         <label>
           UserName:
           <input
@@ -49,7 +50,7 @@ const SignUp = () => {
             onChange={(e) => setPassword(e.target.value)}
           />
         </label>
-        <button>Sign Up</button>
+        <button className="signUpButton">Sign Up</button>
       </form>
       <p>
         Already signed up with us? <Link to="/login">Login</Link>
