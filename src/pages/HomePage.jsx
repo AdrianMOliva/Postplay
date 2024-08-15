@@ -4,8 +4,9 @@ import { Link } from "react-router-dom";
 import SearchBar from "../components/SearchBar";
 import Navbar from "../components/Navbar";
 import { API_URL } from "../config";
+import axios from "axios";
 
-function HomePage({ game, setGame }) {
+function HomePage({ game, setGame, setToggleBacklog, setLoading }) {
   const [search, setSearch] = useState("");
   useEffect(() => {
     const fetchGame = async () => {

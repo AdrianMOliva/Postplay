@@ -20,25 +20,6 @@ function App() {
   const [rating, setRating] = useState(0);
   const [toggleBacklog, setToggleBacklog] = useState([]);
 
-  useEffect(() => {
-    const fetchGame = async () => {
-      try {
-        const token = localStorage.getItem("authToken");
-        const { data } = await axios.get(`${API_URL}/api/games`, {
-          headers: { authorization: `Bearer ${token}` },
-        });
-        console.log(data);
-        setGame(data);
-        setToggleBacklog(Array(data.length).fill(false));
-      } catch (err) {
-        console.log("there is an error", err);
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetchGame();
-  }, []);
-
   if (loading) {
     return <div className="loadingDiv">Loading game data...</div>;
   }
@@ -50,7 +31,14 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route
           path="/home"
-          element={<HomePage game={game} setGame={setGame} />}
+          element={
+            <HomePage
+              game={game}
+              setGame={setGame}
+              setLoading={setLoading}
+              setToggleBacklog={setToggleBacklog}
+            />
+          }
         />
         <Route
           path="/profile"
