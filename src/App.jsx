@@ -12,7 +12,7 @@ import DetailsGamePage from "./pages/DetailsGamePage";
 import RatingPage from "./pages/RatingPage";
 import BacklogPage from "./pages/BacklogPage";
 import NotFoundPage from "./pages/NotFoundPage";
-import { API_URL } from "../config";
+import { API_URL } from "./config";
 
 function App() {
   const [game, setGame] = useState([]);
@@ -84,7 +84,7 @@ function App() {
             />
           }
         />
-        <Route path="*" element={<NotFoundPage/>}/>
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </>
   );

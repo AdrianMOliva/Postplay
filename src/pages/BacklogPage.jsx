@@ -1,5 +1,5 @@
 import axios from "axios";
-import { API_URL } from "../../config";
+import { API_URL } from "../config";
 import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
 
