@@ -6,7 +6,7 @@ import Navbar from "../components/Navbar";
 import { API_URL } from "../config";
 import axios from "axios";
 
-function HomePage({ game, setGame, setToggleBacklog, setLoading }) {
+function HomePage({ game, setGame, setToggleBacklog }) {
   const [search, setSearch] = useState("");
   useEffect(() => {
     const fetchGame = async () => {
@@ -18,10 +18,8 @@ function HomePage({ game, setGame, setToggleBacklog, setLoading }) {
         console.log(data);
         setGame(data);
         setToggleBacklog(Array(data.length).fill(false));
-      } catch (err) {
-        console.log("there is an error", err);
-      } finally {
-        setLoading(false);
+      } catch (error) {
+        console.log("there is an error", error);
       }
     };
     fetchGame();

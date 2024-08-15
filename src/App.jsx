@@ -16,13 +16,10 @@ import { API_URL } from "./config";
 
 function App() {
   const [game, setGame] = useState([]);
-  const [loading, setLoading] = useState(true);
+
   const [rating, setRating] = useState(0);
   const [toggleBacklog, setToggleBacklog] = useState([]);
 
-  if (loading) {
-    return <div className="loadingDiv">Loading game data...</div>;
-  }
   return (
     <>
       <Routes>
@@ -35,7 +32,6 @@ function App() {
             <HomePage
               game={game}
               setGame={setGame}
-              setLoading={setLoading}
               setToggleBacklog={setToggleBacklog}
             />
           }
