@@ -63,9 +63,9 @@ function UserProfile() {
           <div className="reviewBox">
             {reviews.map((review) => (
               <div key={review._id} className="reviewContainer">
-                {/*<p>
+                <p>
                   Game: <span>{review.gameId.name}</span>
-                </p>*/}
+                </p>
                 <p>
                   Rating: <span>{review.rating}</span>
                 </p>
