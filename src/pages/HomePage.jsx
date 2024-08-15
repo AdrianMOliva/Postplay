@@ -3,9 +3,28 @@ import "./HomePage.css";
 import { Link } from "react-router-dom";
 import SearchBar from "../components/SearchBar";
 import Navbar from "../components/Navbar";
+import { API_URL } from "../config";
 
 function HomePage({ game }) {
   const [search, setSearch] = useState("");
+  useEffect(() => {
+    const fetchGame = async () => {
+      try {
+        const token = localStorage.getItem("authToken");
+        const { data } = await axios.get(`${API_URL}/api/games`, {
+          headers: { authorization: `Bearer ${token}` },
+        });
+        console.log(data);
+        setGame(data);
+        setToggleBacklog(Array(data.length).fill(false));
+      } catch (err) {
+        console.log("there is an error", err);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchGame();
+  }, []);
   console.log(game);
   const filteredGame = game.filter((oneGame) =>
     oneGame.name.toLowerCase().includes(search.toLowerCase())
