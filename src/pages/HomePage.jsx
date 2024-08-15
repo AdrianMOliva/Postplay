@@ -6,7 +6,7 @@ import Navbar from "../components/Navbar";
 
 function HomePage({ game }) {
   const [search, setSearch] = useState("");
-
+  console.log(game);
   const filteredGame = game.filter((oneGame) =>
     oneGame.name.toLowerCase().includes(search.toLowerCase())
   );
@@ -14,19 +14,19 @@ function HomePage({ game }) {
     <>
       <Navbar />
       <div className="homePage">
-      <SearchBar search={search} setSearch={setSearch} />
-      <div className="gameContainer">
-        {filteredGame.map((oneGame, i) => (
-          <div className="gameCard" key={i}>
-            <Link to={`/details/${oneGame._id}`}>
-              <img
-                className="cardImg"
-                src={oneGame.covers}
-                alt={oneGame.name}
-              />
-            </Link>
-          </div>
-        ))}
+        <SearchBar search={search} setSearch={setSearch} />
+        <div className="gameContainer">
+          {filteredGame.map((oneGame, i) => (
+            <div className="gameCard" key={i}>
+              <Link to={`/details/${oneGame._id}`}>
+                <img
+                  className="cardImg"
+                  src={oneGame.covers}
+                  alt={oneGame.name}
+                />
+              </Link>
+            </div>
+          ))}
         </div>
       </div>
     </>

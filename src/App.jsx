@@ -27,7 +27,7 @@ function App() {
         const { data } = await axios.get(`${API_URL}/api/games`, {
           headers: { authorization: `Bearer ${token}` },
         });
-
+        console.log(data);
         setGame(data);
         setToggleBacklog(Array(data.length).fill(false));
       } catch (err) {
