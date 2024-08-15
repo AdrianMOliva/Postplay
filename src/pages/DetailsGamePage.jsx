@@ -114,30 +114,32 @@ function DetailsGamePage({ game, rating, toggleBacklog, setToggleBacklog }) {
               </p>
             </div>
           </div>
-          <button
-            className="backlogButton"
-            onClick={() => {
-              handleChange();
-            }}
-          >
-            {"+Backlog"}
-          </button>
-          <button
-            className="rateButton"
-            onClick={() => {
-              nav(`/rating/${oneGame._id}`);
-            }}
-          >
-            {"RATE"}
-          </button>
-          <button
-            className="backButton"
-            onClick={() => {
-              nav("/home");
-            }}
-          >
-            {"<<back"}
-          </button>
+          <div>
+            <button
+              className="backlogButton"
+              onClick={() => {
+                handleChange();
+              }}
+            >
+              {"+Backlog"}
+            </button>
+            <button
+              className="rateButton"
+              onClick={() => {
+                nav(`/rating/${oneGame._id}`);
+              }}
+            >
+              {"RATE"}
+            </button>
+            <button
+              className="backButton"
+              onClick={() => {
+                nav("/home");
+              }}
+            >
+              {"<<back"}
+            </button>
+          </div>
         </div>
       </div>
     </>

@@ -1,15 +1,13 @@
 import { useParams } from "react-router-dom";
 import { useState } from "react";
 import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import Navbar from "../components/Navbar";
 import RatingBar from "../components/RatingBar";
+import ReviewsBox from "../components/ReviewsBox";
+import "./RatingPage.css";
 
 function RatingPage({ game, rating, setRating }) {
   const { gameId } = useParams();
   const [oneGame, setOneGame] = useState([]);
-
-  const nav = useNavigate();
 
   useEffect(() => {
     const videoG = game.find((videoG) => videoG._id === gameId);
@@ -17,13 +15,14 @@ function RatingPage({ game, rating, setRating }) {
   }, [game, gameId]);
 
   return (
-    <div className="container">
+    <div className="ratingContainer">
       <h1></h1>
-      <div className="pageContainer">
-        <div className="infoContainer">
+      <div className="ratingPageContainer">
+        <div className="raitingInfoContainer">
           <h2>{oneGame.name}</h2>
         </div>
         <RatingBar rating={rating} setRating={setRating} gameId={gameId} />
+        <ReviewsBox gameId={gameId} />
       </div>
     </div>
   );

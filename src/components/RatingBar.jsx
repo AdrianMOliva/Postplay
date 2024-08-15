@@ -14,7 +14,6 @@ function RatingBar({ rating, setRating, gameId }) {
 
   const handleRatingSubmit = async () => {
     if (selectedRating === 0) {
-      alert("Please select a rating.");
       return;
     }
 
@@ -66,7 +65,7 @@ function RatingBar({ rating, setRating, gameId }) {
       <button
         className="backButton"
         onClick={() => {
-          nav(`/details/${oneGame._id}`);
+          nav(`/details/${gameId}`);
           setRating(0);
         }}
       >
