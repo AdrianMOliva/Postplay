@@ -1,11 +1,11 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./HomePage.css";
 import { Link } from "react-router-dom";
 import SearchBar from "../components/SearchBar";
 import Navbar from "../components/Navbar";
 import { API_URL } from "../config";
 
-function HomePage({ game }) {
+function HomePage({ game, setGame }) {
   const [search, setSearch] = useState("");
   useEffect(() => {
     const fetchGame = async () => {
