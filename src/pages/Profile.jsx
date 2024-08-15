@@ -2,7 +2,7 @@ import axios from "axios";
 import { useState, useEffect, useContext } from "react";
 import { AuthContext } from "../contexts/Auth.context";
 import Navbar from "../components/Navbar";
-import { API_URL } from "../../config";
+import { API_URL } from "../config";
 function UserProfile() {
   const { user, isLoading } = useContext(AuthContext);
   const [reviews, setReviews] = useState([]);

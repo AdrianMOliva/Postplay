@@ -3,7 +3,7 @@ import { useState } from "react";
 import { AuthContext } from "../contexts/Auth.context";
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import { API_URL } from "../../config";
+import { API_URL } from "../config";
 
 function RatingBar({ rating, setRating, gameId }) {
   const [review, setReview] = useState("");

@@ -2,8 +2,8 @@ import axios from "axios";
 import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../contexts/Auth.context";
-import "./LogIn.css"
-import { API_URL } from "../../config";
+import "./LogIn.css";
+import { API_URL } from "../config";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -17,10 +17,7 @@ const Login = () => {
     const userLogin = { email, password };
 
     try {
-      const { data } = await axios.post(
-        `${API_URL}/auth/login`,
-        userLogin
-      );
+      const { data } = await axios.post(`${API_URL}/auth/login`, userLogin);
       console.log("successfully logged in", data);
       localStorage.setItem("authToken", data.authToken);
       await authenticateUser();

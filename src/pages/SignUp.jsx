@@ -1,8 +1,8 @@
 import axios from "axios";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { API_URL } from "../../config";
-import "./SignUp.css"
+import { API_URL } from "../config";
+import "./SignUp.css";
 const SignUp = () => {
   const [userName, setUserName] = useState("");
   const [email, setEmail] = useState("");
