@@ -16,10 +16,32 @@ import { API_URL } from "./config";
 
 function App() {
   const [game, setGame] = useState([]);
-
+  const [loading, setLoading] = useState(true);
   const [rating, setRating] = useState(0);
   const [toggleBacklog, setToggleBacklog] = useState([]);
 
+  useEffect(() => {
+    const fetchGame = async () => {
+      try {
+        const token = localStorage.getItem("authToken");
+        const { data } = await axios.get(`${API_URL}/api/games`, {
+          headers: { authorization: `Bearer ${token}` },
+        });
+        console.log(data);
+        setGame(data);
+        setToggleBacklog(Array(data.length).fill(false));
+      } catch (err) {
+        console.log("there is an error", err);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchGame();
+  }, []);
+
+  if (loading) {
+    return <div className="loadingDiv">Loading game data...</div>;
+  }
   return (
     <>
       <Routes>
@@ -28,13 +50,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route
           path="/home"
-          element={
-            <HomePage
-              game={game}
-              setGame={setGame}
-              setToggleBacklog={setToggleBacklog}
-            />
-          }
+          element={<HomePage game={game} setGame={setGame} />}
         />
         <Route
           path="/profile"
