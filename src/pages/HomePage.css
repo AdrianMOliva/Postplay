@@ -4,20 +4,20 @@
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: 100%;
-  border: 1px solid red;
+  height: 100vh;
+
+  justify-content: flex-start;
   box-sizing: border-box;
+  margin-top: 100px;
 }
 
 .searchBar {
   display: flex;
   justify-content: center;
-  
+  margin-top: 100px;
   width: 400px;
   padding: 10px;
   box-sizing: border-box;
-  margin-bottom: 10px;
-  
 }
 
 .searchBar input {
@@ -29,6 +29,7 @@
 }
 
 .gameContainer {
+  margin-top: 20px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -36,7 +37,6 @@
   width: 100%;
   padding: 20px;
   box-sizing: border-box;
-  border: 1px solid red
 }
 
 .gameCard {
@@ -44,11 +44,13 @@
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   overflow: hidden;
-  width: 10%;
+  width: 100px; /* Adjust width */
+  height: 150px; /* Adjust height */
   text-align: center;
 }
 
 .cardImg {
   width: 100%;
-  height: 250px;
+  height: 100%; /* Adjusted to fill the gameCard parent */
+  object-fit: cover; /* Ensures image covers the card without stretching */
 }

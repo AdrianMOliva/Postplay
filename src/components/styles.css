@@ -1,4 +1,3 @@
-
 .navbarclass {
   display: flex;
   background-color: #e2b110;
@@ -6,17 +5,19 @@
   width: 100%;
   flex-direction: row;
   justify-content: space-between;
-  
+  position: fixed;
   top: 0;
   left: 0;
+  z-index: 1000;
+  padding: 0 20px;
+  box-sizing: border-box;
 }
 
 .navbarclass a {
   text-decoration: none;
-  
 }
 
-.logoHome{
+.logoHome {
   width: 100px;
   height: fit-content;
 }
@@ -30,7 +31,7 @@
     "Lucida Sans", Arial, sans-serif;
 }
 
-.logosDiv h4{
+.logosDiv h4 {
   margin-left: 10px;
 }
 
@@ -38,7 +39,7 @@
   height: 90px;
 }
 
-.logosDiv button{
+.logosDiv button {
   text-decoration: none;
   color: whitesmoke;
   margin: 20px;
@@ -48,12 +49,12 @@
   border-radius: 8px;
 }
 
-.logosDiv button:hover{
+.logosDiv button:hover {
   color: #e2b110;
   cursor: pointer;
 }
 
-.logosDiv a{
+.logosDiv a {
   text-decoration: none;
   color: whitesmoke;
   margin: 20px;
@@ -64,7 +65,7 @@
   border-radius: 8px;
 }
 
-.logosDiv a:hover{
+.logosDiv a:hover {
   color: #e2b110;
 }
 
@@ -95,10 +96,9 @@
   background-color: #333;
   width: 80px;
   height: fit-content;
-  
 }
 
-.signingButtons h4{
+.signingButtons h4 {
   margin-left: 9px;
 }
 
