@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import { API_URL } from "../../config";
+import { API_URL } from "../config";
 import Navbar from "../components/Navbar";
 
 function DetailsGamePage({ game, rating, toggleBacklog, setToggleBacklog }) {
@@ -78,57 +78,57 @@ function DetailsGamePage({ game, rating, toggleBacklog, setToggleBacklog }) {
 
   return (
     <>
-    <Navbar/>
-    <div className="container">
-      <h1></h1>
-      <div className="pageContainer">
-        <div className="infoContainer">
-          <h2>{oneGame.name}</h2>
-          <h3>
-            Average Rating:{" "}
-            {averageRating !== null
-              ? averageRating.toFixed(2)
-              : "No ratings yet"}
-          </h3>
-          <p>
-            <span>Description: </span>
-            {oneGame.summary}
-          </p>
-          <p>
-            <span>Genres: </span>
-            {oneGame.genres.map((e) => e.name).join(", ")}
-          </p>
-          <p>
-            <span>Platforms: </span>
-            {oneGame.platforms.map((e) => e.name).join(", ")}
-          </p>
+      <Navbar />
+      <div className="container">
+        <h1></h1>
+        <div className="pageContainer">
+          <div className="infoContainer">
+            <h2>{oneGame.name}</h2>
+            <h3>
+              Average Rating:{" "}
+              {averageRating !== null
+                ? averageRating.toFixed(2)
+                : "No ratings yet"}
+            </h3>
+            <p>
+              <span>Description: </span>
+              {oneGame.summary}
+            </p>
+            <p>
+              <span>Genres: </span>
+              {oneGame.genres.map((e) => e.name).join(", ")}
+            </p>
+            <p>
+              <span>Platforms: </span>
+              {oneGame.platforms.map((e) => e.name).join(", ")}
+            </p>
+          </div>
+          <button
+            className="backlogButton"
+            onClick={() => {
+              handleChange();
+            }}
+          >
+            {"+Backlog"}
+          </button>
+          <button
+            className="rateButton"
+            onClick={() => {
+              nav(`/rating/${oneGame._id}`);
+            }}
+          >
+            {"RATE"}
+          </button>
+          <button
+            className="backButton"
+            onClick={() => {
+              nav("/home");
+            }}
+          >
+            {"<<back"}
+          </button>
         </div>
-        <button
-          className="backlogButton"
-          onClick={() => {
-            handleChange();
-          }}
-        >
-          {"+Backlog"}
-        </button>
-        <button
-          className="rateButton"
-          onClick={() => {
-            nav(`/rating/${oneGame._id}`);
-          }}
-        >
-          {"RATE"}
-        </button>
-        <button
-          className="backButton"
-          onClick={() => {
-            nav("/home");
-          }}
-        >
-          {"<<back"}
-        </button>
       </div>
-    </div>
     </>
   );
 }
