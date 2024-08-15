@@ -2,6 +2,8 @@ import axios from "axios";
 import { API_URL } from "../config";
 import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
+import deleteLogo from "../assets/deleteLogo.png";
+import "./BacklogPage.css";
 
 function BacklogPage({ game, toggleBacklog, setToggleBacklog }) {
   const backloggedGame = game.filter((videoG) => videoG.backlog === true);
@@ -44,17 +46,18 @@ function BacklogPage({ game, toggleBacklog, setToggleBacklog }) {
   return (
     <>
       <Navbar />
-      <div className="cardContainer">
+      <div className="backContainer">
         {backloggedGame.map((videoG, i) => (
           <div className="card" key={i}>
-            <img className="cardImg" src={videoG.covers} alt={videoG.name} />
+            <img className="backImg" src={videoG.covers} alt={videoG.name} />
+            <h4>{videoG.name}</h4>
             <button
               onClick={() => {
                 handleChange(i);
               }}
-              className={`btn-like ${toggleBacklog[i] ? "on" : "off"}`}
+              className="btnDelete"
             >
-              <img src={""} alt="delete" />
+              <img src={deleteLogo} alt="delete" />
             </button>
           </div>
         ))}

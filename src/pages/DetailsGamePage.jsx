@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { API_URL } from "../config";
 import Navbar from "../components/Navbar";
+import "./DetailsGamePage.css";
 
 function DetailsGamePage({ game, rating, toggleBacklog, setToggleBacklog }) {
   const { gameId } = useParams();
@@ -82,26 +83,36 @@ function DetailsGamePage({ game, rating, toggleBacklog, setToggleBacklog }) {
       <div className="container">
         <h1></h1>
         <div className="pageContainer">
-          <div className="infoContainer">
-            <h2>{oneGame.name}</h2>
-            <h3>
-              Average Rating:{" "}
-              {averageRating !== null
-                ? averageRating.toFixed(2)
-                : "No ratings yet"}
-            </h3>
-            <p>
-              <span>Description: </span>
-              {oneGame.summary}
-            </p>
-            <p>
-              <span>Genres: </span>
-              {oneGame.genres.map((e) => e.name).join(", ")}
-            </p>
-            <p>
-              <span>Platforms: </span>
-              {oneGame.platforms.map((e) => e.name).join(", ")}
-            </p>
+          <div className="coverAndInfoContainer">
+            <div className="coverContainer">
+              <img
+                src={oneGame.covers}
+                alt={`${oneGame.name} cover`}
+                className="coverImage"
+              />
+            </div>
+
+            <div className="infoContainer">
+              <h2>{oneGame.name}</h2>
+              <h3>
+                {"★"}
+                {averageRating !== null
+                  ? averageRating.toFixed(2)
+                  : "No ratings yet"}
+              </h3>
+              <p>
+                <span>Description: </span>
+                {oneGame.summary}
+              </p>
+              <p>
+                <span>Genres: </span>
+                {oneGame.genres.map((e) => e.name).join(", ")}
+              </p>
+              <p>
+                <span>Platforms: </span>
+                {oneGame.platforms.map((e) => e.name).join(", ")}
+              </p>
+            </div>
           </div>
           <button
             className="backlogButton"

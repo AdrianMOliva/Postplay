@@ -1,20 +1,22 @@
+.welcomeContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100vh;
+  padding: 0 20px;
+}
+
 .welcomeText {
   display: flex;
   flex-direction: column;
-  position: fixed;
-  bottom: 150px;
+  justify-content: center;
+  color: #e2b110;
+  font-size: 35px;
+  max-width: 50%;
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
-  color: #e2b110;
-  margin-left: 200px;
-  font-size: larger;
 }
 
 .logoYellow {
-  position: fixed;
   width: 550px;
-  right: 270px;
-  bottom: 0;
-  
 }
-

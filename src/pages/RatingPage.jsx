@@ -24,15 +24,6 @@ function RatingPage({ game, rating, setRating }) {
           <h2>{oneGame.name}</h2>
         </div>
         <RatingBar rating={rating} setRating={setRating} gameId={gameId} />
-        <button
-          className="backButton"
-          onClick={() => {
-            nav(`/details/${oneGame._id}`);
-            setRating(0);
-          }}
-        >
-          {"<<back"}
-        </button>
       </div>
     </div>
   );

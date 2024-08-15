@@ -3,6 +3,8 @@ import { useState, useEffect, useContext } from "react";
 import { AuthContext } from "../contexts/Auth.context";
 import Navbar from "../components/Navbar";
 import { API_URL } from "../config";
+import "./Profile.css";
+
 function UserProfile() {
   const { user, isLoading } = useContext(AuthContext);
   const [reviews, setReviews] = useState([]);
@@ -48,28 +50,39 @@ function UserProfile() {
   };
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return <div className="loadingContainer">Loading...</div>;
   }
 
   return (
     <>
       <Navbar />
-      <div>
-        <h1>{`${user.userName}´s Profile`}</h1>
-        <h2>Your Reviews</h2>
+      <div className="profileContainer">
+        <h1 className="profileHeader">{`${user.userName}’s Profile`}</h1>
+        <h2 className="profileSubheader">Your Reviews</h2>
         {reviews.length > 0 ? (
-          reviews.map((review) => (
-            <div key={review._id}>
-              <p>Game: {review.gameId.name}</p>
-              <p>Rating: {review.rating}</p>
-              <p>Review: {review.review}</p>
-              <button onClick={() => handleDeleteReview(review._id)}>
-                Delete Review
-              </button>
-            </div>
-          ))
+          <div className="reviewBox">
+            {reviews.map((review) => (
+              <div key={review._id} className="reviewContainer">
+                <p>
+                  Game: <span>{review.gameId.name}</span>
+                </p>
+                <p>
+                  Rating: <span>{review.rating}</span>
+                </p>
+                <p>
+                  Review: <span>{review.review}</span>
+                </p>
+                <button
+                  className="deleteButton"
+                  onClick={() => handleDeleteReview(review._id)}
+                >
+                  Delete Review
+                </button>
+              </div>
+            ))}
+          </div>
         ) : (
-          <p>No reviews found.</p>
+          <p className="noReviewsMessage">No reviews found.</p>
         )}
       </div>
     </>

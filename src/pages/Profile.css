@@ -1,0 +1,78 @@
+.profileContainer {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  width: 80%;
+  max-width: 800px;
+  margin: 0 auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow-y: auto;
+  max-height: 80vh;
+}
+
+.profileHeader {
+  font-size: 28px;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #e2b110;
+}
+
+.profileSubheader {
+  font-size: 24px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.reviewBox {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.reviewContainer {
+  background-color: #444;
+  padding: 15px;
+  border-radius: 8px;
+  flex: 1 1 calc(50% - 20px);
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.reviewContainer p {
+  margin: 10px 0;
+}
+
+.reviewContainer span {
+  font-weight: bold;
+  color: #ddd;
+}
+
+.deleteButton {
+  background-color: #e2b110;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.deleteButton:hover {
+  background-color: #d39c0f;
+}
+
+.noReviewsMessage {
+  text-align: center;
+  color: #ddd;
+  font-size: 18px;
+}
+
+.loadingContainer {
+  text-align: center;
+  color: #fff;
+  font-size: 20px;
+  margin-top: 50px;
+}

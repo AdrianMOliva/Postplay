@@ -1,0 +1,86 @@
+.pageContainer {
+  background-color: #333;
+  color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  padding: 20px;
+  width: 80%;
+  max-width: 800px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 100px;
+  overflow-y: auto;
+}
+
+.coverAndInfoContainer {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.coverContainer {
+  text-align: center;
+}
+
+.coverImage {
+  max-width: 200px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.infoContainer {
+  text-align: left;
+}
+
+.infoContainer h2 {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.infoContainer h3 {
+  font-size: 20px;
+  margin-bottom: 20px;
+  color: #ddd;
+}
+
+.infoContainer p {
+  font-size: 16px;
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+
+.infoContainer span {
+  font-weight: bold;
+  color: #fff;
+}
+
+.backlogButton,
+.rateButton,
+.backButton {
+  background-color: #e2b110;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  margin: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.backlogButton:hover,
+.rateButton:hover,
+.backButton:hover {
+  background-color: #d39c0f;
+}
+
+.backButton {
+  background-color: #555;
+  margin-top: 20px;
+}
+
+.backButton:hover {
+  background-color: #444;
+}
