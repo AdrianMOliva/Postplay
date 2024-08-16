@@ -1,107 +1,51 @@
-# React + Vite
+# PostPlay
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Click here to see the deployed website: https://postplay.netlify.app
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+# Description
 
-import { useParams } from "react-router-dom";
-import { useState, useEffect, useContext } from "react";
-import { useNavigate } from "react-router-dom";
-import Navbar from "../components/Navbar";
-import RatingBar from "../components/RatingBar";
-import axios from "axios";
-import { AuthContext } from "../contexts/Auth.context";
-import { API_URL } from "../../config";
 
-function RatingPage({ game, rating, setRating }) {
-const { gameId } = useParams();
-const [oneGame, setOneGame] = useState({});
-const [reviews, setReviews] = useState([]);
-const { user, isLoading } = useContext(AuthContext);
-const nav = useNavigate();
 
-useEffect(() => {
-const videoG = game.find((videoG) => videoG.\_id === gameId);
-setOneGame(videoG);
-}, [game, gameId]);
+# BackLogs
 
-useEffect(() => {
-const fetchReviews = async () => {
-if (!user || !user.\_id) return;
+- Sign Up, Log in and Log out functions.
+- Profile only accesible if logged using a isPrivate wrapper.
+- Requesting the data from an External API
+- Create your own reviews.
+- Updating the API depending if you click the backlog button .
+- Conditional rendering if any game is marked/added to the Backlog.
+- Search bar that allow to type and search between the displayed data.
 
-      try {
-        const token = localStorage.getItem("authToken");
-        const response = await axios.get(
-          `${API_URL}/api/ratings/${gameId}/reviews`,
-          {
-            headers: { authorization: `Bearer ${token}` },
-          }
-        );
-        setReviews(response.data);
-      } catch (error) {
-        console.error("Error fetching reviews:", error);
-      }
-    };
+# Data Structure
 
-    if (!isLoading) {
-      fetchReviews();
-    }
+## Components
 
-}, [user, isLoading, gameId]);
+- Navbar.jsx
+- SearchBar.jsx
+- RatingBar.jsx
+- ReviewBox.jsx
+- isPrivate.jsx
+- NavbarWelcome.jsx
 
-/\*return (
-<div className="container">
-<Navbar />
-<div className="pageContainer">
-<div className="infoContainer">
-<h2>{oneGame.name}</h2>
-</div>
-<RatingBar rating={rating} setRating={setRating} gameId={gameId} />
-<button
-className="backButton"
-onClick={() => {
-nav(`/details/${oneGame._id}`);
-setRating(0);
-}} >
-{"<<back"}
-</button>
-<h2>Reviews</h2>
-{reviews.length > 0 ? (
-reviews.map((review) => (
-<div key={review._id}>
-<p>User: {review.user.userName}</p>
-<p>Rating: {review.rating}</p>
-<p>Review: {review.review}</p>
-{user && user.\_id === review.user.\_id && (
-<button
-onClick={async () => {
-const token = localStorage.getItem("authToken");
-try {
-await axios.delete(
-`${API_URL}/api/ratings/${review._id}`,
-{
-headers: { authorization: `Bearer ${token}` },
-}
-);
-setReviews(reviews.filter((r) => r.\_id !== review.\_id));
-} catch (error) {
-console.error("Error deleting review:", error);
-}
-}} >
-Delete
-</button>
-)}
-</div>
-))
-) : (
-<p>No reviews found.</p>
-)}
-</div>
-</div>
-);
-}
+## Pages
 
-export default RatingPage;\*/
+- NotFoundPage.jsx
+- BacklogPage.jsx
+- HomePage.jsx
+- LogIn.jsx
+- SignUp.jsx
+- DetailsGamePage.jsx
+- Profile.jsx
+- RatingPage.jsx
+- WelcomePage.jsx
+
+# Links
+
+- Github repository
+  https://github.com/AdrianMOliva/Postplay
+  
+
+- Deployment Links:
+  https://postplay.netlify.app
+  
