@@ -5,7 +5,11 @@ Click here to see the deployed website: https://postplay.netlify.app
 
 # Description
 
-
+PostPlay is an app designed to discover new games, check detailed information and engage with the gaming community. With PostPlay you can:
+-Search for games and explore their ratings, reviews and detailed info.
+-Rate and Review games, sharing your thoughts and experiences with others.
+-Create a Backlog to keep track of games you plan to play.
+Wether you are an usual gamer or just looking for your next favourite game, Postplay provides a seamless and interactive way to manage your gaming journey.
 
 # BackLogs
 
